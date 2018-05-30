@@ -1,0 +1,1 @@
+web: ejaza-app
