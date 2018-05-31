@@ -6,9 +6,9 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/julienschmidt/httprouter"
-	"google.golang.org/appengine"
 )
 
 // ---------- Types
@@ -112,9 +112,13 @@ func main() {
 
 	http.Handle("/", mux)
 
-	// http.ListenAndServe(":8080", mux)
+	port := os.Getenv("PORT")
+	port = ":" + port
 
-	appengine.Main()
+	fmt.Println("Listening on port", port)
+	http.ListenAndServe(port, mux)
+
+	// appengine.Main()
 
 	// lambda.Start(handler)
 }
