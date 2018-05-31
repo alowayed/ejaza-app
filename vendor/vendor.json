@@ -1,0 +1,16 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "X7g98YfLr+zM7aN76AZvAfpZyfk=",
+			"path": "github.com/julienschmidt/httprouter",
+			"revision": "adbc77eec0d91467376ca515bc3a14b8434d0f18",
+			"revisionTime": "2018-04-11T15:45:01Z"
+		}
+	],
+	"rootPath": "github.com/alowayed/ejaza-app",
+	"heroku": {
+        "install" : [ "./..." ]
+         }
+}

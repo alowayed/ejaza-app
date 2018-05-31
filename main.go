@@ -110,7 +110,7 @@ func main() {
 	mux.GET("/cert/id/:id", GetCertById)
 	mux.GET("/cert/confirm/:id", GetCertConfirmById)
 
-	http.Handle("/", mux)
+	// http.Handle("/", mux)
 
 	port := os.Getenv("PORT")
 	port = ":" + port
