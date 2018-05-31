@@ -117,8 +117,4 @@ func main() {
 
 	fmt.Println("Listening on port", port)
 	http.ListenAndServe(port, mux)
-
-	// appengine.Main()
-
-	// lambda.Start(handler)
 }
