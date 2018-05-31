@@ -8,6 +8,7 @@ import (
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
+	"google.golang.org/appengine"
 )
 
 // ---------- Types
@@ -109,7 +110,11 @@ func main() {
 	mux.GET("/cert/id/:id", GetCertById)
 	mux.GET("/cert/confirm/:id", GetCertConfirmById)
 
-	http.ListenAndServe(":8080", mux)
+	http.Handle("/", mux)
+
+	// http.ListenAndServe(":8080", mux)
+
+	appengine.Main()
 
 	// lambda.Start(handler)
 }

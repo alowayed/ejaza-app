@@ -1,0 +1,8 @@
+# Config file for Google App Engine
+
+runtime: go
+api_version: go1
+
+handlers:
+- url: /.*
+  script: _go_app
