@@ -1,0 +1,35 @@
+{{define "certForm"}}
+
+<div class="card">
+  <div class="card-body">
+
+    <h3 class="card-title">Submit a certificate</h3>
+
+    <form id="certForm" action="/cert/submit" method="post">
+      
+      <div class="form-group">
+        <label class="control-label" for="certData">Data</label>
+        <textarea class="form-control" id="certData" rows="3" name="data" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="certSEmail">Student email address</label>
+        <input type="email" class="form-control" id="certSEmail" name="semail" placeholder="name@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="certIEmail">Institute email address</label>
+        <input type="email" class="form-control" id="iemail" name ="iemail" placeholder="registrar@school.com" required>
+      </div>
+     
+      <div class="button">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+
+{{end}}

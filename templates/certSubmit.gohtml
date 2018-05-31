@@ -1,0 +1,27 @@
+{{define "certSubmit"}}
+
+<!doctype html>
+<html lang="en">
+  {{template "head"}}
+  
+  <body>
+
+    <div style="padding-top: 7%;"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-0 col-md-3"></div>
+        <div class="col-12 col-md-6">
+          {{template "certForm"}}
+        </div>
+        <div class="col-0 col-md-3"></div>
+      </div>
+    </div>
+
+    {{template "external-js"}}
+    
+  </body>
+
+</html>
+
+{{end}}
