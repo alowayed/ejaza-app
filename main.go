@@ -27,6 +27,17 @@ type Cert struct {
 var tpl *template.Template
 var Certs []Cert
 
+// Push the given resource to the client.
+// func push(w http.ResponseWriter, resource string) {
+// 	pusher, ok := w.(http.Pusher)
+// 	fmt.Println("push not supported")
+// 	if ok {
+// 		if err := pusher.Push(resource, nil); err != nil {
+// 			fmt.Println("Failed to push")
+// 		}
+// 	}
+// }
+
 // ---------- Routes
 
 func GetIndex(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
@@ -92,16 +103,12 @@ func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
 }
 
-// func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-// 	return events.APIGatewayProxyResponse{
-// 		StatusCode: 200,
-// 		Body:       "Hello AWS Lambda and Netlify",
-// 	}, nil
-// }
-
 func main() {
 
 	mux := httprouter.New()
+
+	mux.ServeFiles("/css/*filepath", http.Dir("css"))
+
 	mux.GET("/", GetIndex)
 	mux.GET("/cert", GetCert)
 	mux.GET("/cert/submit", GetCertSubmit)
@@ -110,10 +117,12 @@ func main() {
 	mux.GET("/cert/id/:id", GetCertById)
 	mux.GET("/cert/confirm/:id", GetCertConfirmById)
 
-	// http.Handle("/", mux)
-
 	port := os.Getenv("PORT")
 	port = ":" + port
+
+	if port == ":" {
+		port = ":8080"
+	}
 
 	fmt.Println("Listening on port", port)
 	http.ListenAndServe(port, mux)
