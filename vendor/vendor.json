@@ -1,7 +1,60 @@
 {
 	"comment": "",
+	"heroku": {
+		"install": [
+			"./..."
+		]
+	},
 	"ignore": "test",
 	"package": [
+		{
+			"checksumSHA1": "NGPOuO9o4DMPLvJ0VROxCP3gdlQ=",
+			"path": "github.com/go-redis/redis",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
+		{
+			"checksumSHA1": "nVXciulY6rLU5aGPqX/uMMSaFAQ=",
+			"path": "github.com/go-redis/redis/internal",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
+		{
+			"checksumSHA1": "GQZsUVg/+6UpQAYpc4luMvMutSI=",
+			"path": "github.com/go-redis/redis/internal/consistenthash",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
+		{
+			"checksumSHA1": "GE9tg94JwCzMbBwn3Q2LaFs5Rx0=",
+			"path": "github.com/go-redis/redis/internal/hashtag",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
+		{
+			"checksumSHA1": "MAwurWthIlVoynFQu1LRY0IrftQ=",
+			"path": "github.com/go-redis/redis/internal/pool",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
+		{
+			"checksumSHA1": "2DZs/18lBWzZk2rxWLVtPUzNXhs=",
+			"path": "github.com/go-redis/redis/internal/proto",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
+		{
+			"checksumSHA1": "sjbjSJrTdvyDwNjrWjTNeXgUhaU=",
+			"path": "github.com/go-redis/redis/internal/singleflight",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
+		{
+			"checksumSHA1": "SvyqZrzHTVxCIBoawql2ucvfWLE=",
+			"path": "github.com/go-redis/redis/internal/util",
+			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
+			"revisionTime": "2018-06-18T10:58:19Z"
+		},
 		{
 			"checksumSHA1": "X7g98YfLr+zM7aN76AZvAfpZyfk=",
 			"path": "github.com/julienschmidt/httprouter",
@@ -9,8 +62,5 @@
 			"revisionTime": "2018-04-11T15:45:01Z"
 		}
 	],
-	"rootPath": "github.com/alowayed/ejaza-app",
-	"heroku": {
-        "install" : [ "./..." ]
-         }
+	"rootPath": "github.com/alowayed/ejaza-app"
 }
