@@ -197,7 +197,7 @@ func GetCertConfirmById(w http.ResponseWriter, req *http.Request, ps httprouter.
 // -------------------- Methods
 
 func init() {
-	tpl = template.Must(template.ParseGlob("/Users/Yousef/go/src/github.com/alowayed/ejaza-app/templates/*.gohtml"))
+	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
 	setupDB()
 }
 
