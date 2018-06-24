@@ -93,6 +93,8 @@ func PostCertSubmit(w http.ResponseWriter, req *http.Request, ps httprouter.Para
 
 	err = client.Set(strId, certJson, 0).Err()
 	if err != nil {
+		fmt.Println("Failed to add item: ", cert)
+		fmt.Println("Redirecting to home because of err: ", err)
 		url := fmt.Sprintf("/")
 		http.Redirect(w, req, url, http.StatusSeeOther)
 		return
@@ -204,6 +206,7 @@ func setupDB() {
 		redisUrl = "localhost:6379"
 	}
 
+	fmt.Println("Connected to redis at: ", redisUrl)
 	client = redis.NewClient(&redis.Options{
 		Addr:     redisUrl,
 		Password: "", // no password set
