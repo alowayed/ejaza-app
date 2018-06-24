@@ -83,9 +83,6 @@ func PostCertSubmit(w http.ResponseWriter, req *http.Request, ps httprouter.Para
 	// Send an email to
 	sendConfirmationEmail(cert)
 
-	// Save the cert to the blockchain and get back an external id for it
-	//cert.BlockchainId = saveCertToBlockchain(cert)
-
 	// Save the cert to the database
 	strId := strconv.Itoa(cert.Id)
 
@@ -96,9 +93,9 @@ func PostCertSubmit(w http.ResponseWriter, req *http.Request, ps httprouter.Para
 
 	err = client.Set(strId, certJson, 0).Err()
 	if err != nil {
-		url := fmt.Sprintf("/cert/id/%v", id)
+		url := fmt.Sprintf("/")
 		http.Redirect(w, req, url, http.StatusSeeOther)
-
+		return
 	}
 	// TODO: Err handle if cert cannot be added to DB
 
@@ -202,8 +199,13 @@ func init() {
 }
 
 func setupDB() {
+	redisUrl := os.Getenv("REDIS_URL")
+	if redisUrl == "" {
+		redisUrl = "localhost:6379"
+	}
+
 	client = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     redisUrl,
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})
