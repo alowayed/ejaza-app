@@ -1,0 +1,130 @@
+{{define "cert"}}
+
+<!doctype html>
+<html lang="en">
+  {{template "head"}}
+  
+  <body>
+
+    <div style="padding-top: 7%;"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-0 col-md-3"></div>
+        <div class="col-12 col-md-6">
+
+          <a class="btn btn-primary btn-lg btn-block" href="/" role="button">Return Home</a>
+          <div style="padding-top: 7%;"></div>
+
+          {{/*Card start*/}}
+          <div class="card">
+            <div class="card-body">
+
+              <h3 class="card-title">Check for a certificate</h3>
+
+              {{/*<p class="card-text">{{.}}</p>*/}}
+
+              <form id="certForm" action="/cert/id" method="post">
+
+                <div class="form-group">
+                  <label for="certId">Certificate ID</label>
+                  <input class="form-control" id="certId" name="certId" value="{{.}}" placeholder="123" required>
+                </div>
+
+                {{/*<span class="badge badge-pill badge-danger">Danger</span>*/}}
+
+                {{/*<div class="button">*/}}
+              {{/*    <button type="submit" class="btn btn-primary">Submit</button>*/}}
+              {{/*  </div>*/}}
+                {{/*<div class="alert alert-danger" role="alert">*/}}
+                  {{/*A simple danger alert—check it out!*/}}
+                {{/*</div>*/}}
+
+
+                <div class="container-fluid">
+                  <div class="row">
+
+                    <div class="col-3">
+                      <div class="button">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </div>
+
+                    <div class="col-9">
+                      {{/*<p>*/}}
+                        {{/*<span class="badge badge-danger">{{.}}</span>*/}}
+                      {{/*</p>*/}}
+                      {{/*<div class="alert alert-danger" role="alert">*/}}
+                        {{/*{{.}}*/}}
+                      {{/*</div>*/}}
+                    </div>
+
+                  </div>
+                </div>
+
+                {{/*<div style="padding-top: 7%;"></div>*/}}
+
+
+
+              </form>
+
+            </div>
+          </div>
+          {{/*Card end*/}}
+
+            <!-- Modal -->
+            {{if .}}
+              <script>
+                console.log("Creating modal")
+              </script>
+              <div class="modal fade" id="certNotFoundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">No Certificate Found</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      No certificate found with ID: {{.}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{end}}
+
+        </div>
+        <div class="col-0 col-md-3"></div>
+      </div>
+    </div>
+
+    {{template "external-js"}}
+
+    <script>
+      $(document).ready(function(){
+        $('#certNotFoundModal').modal('show')
+        $("button[type=submit]").click(function(e){
+          e.preventDefault();
+          var certId = $("#certId").val();
+          if (certId === "") {
+            $("form").attr('action','/cert');
+            $("form").submit();
+            return
+          }
+          console.log("certId: ",  certId);
+          $("form").attr('action','/cert/id/' + certId);
+          $("form").submit();
+        });
+      });
+    </script>
+    
+  </body>
+
+</html>
+
+{{end}}

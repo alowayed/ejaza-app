@@ -21,8 +21,8 @@ server:
   port: 5001
   host: localhost
 schema:
-- name: /Users/Yousef/Dropbox (Personal)/Macbook/Other/Skills/Software/ejaza-app
-  path: /Users/Yousef/Dropbox (Personal)/Macbook/Other/Skills/Software/ejaza-app
+- name: /Users/Yousef/go/src/github.com/alowayed/ejaza-app
+  path: /Users/Yousef/go/src/github.com/alowayed/ejaza-app
   commands:
     install:
       status: true
@@ -38,6 +38,6 @@ schema:
     ignored_paths:
     - .git
     - .realize
-    - (/Users/Yousef/Dropbox (Personal)/Macbook/Other/Skills/Software/ejaza-app/vendor)
-    - /Users/Yousef/Dropbox (Personal)/Macbook/Other/Skills/Software/ejaza-app/vendor
-    - /Users/Yousef/Dropbox (Personal)/Macbook/Other/Skills/Software/ejaza-app/vendor
+    - (/Users/Yousef/go/src/github.com/alowayed/ejaza-app/vendor)
+    - /Users/Yousef/go/src/github.com/alowayed/ejaza-app/vendor
+    - /Users/Yousef/go/src/github.com/alowayed/ejaza-app/vendor

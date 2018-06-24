@@ -1,4 +1,4 @@
-{{define "certSubmit"}}
+{{define "certById"}}
 
 <!doctype html>
 <html lang="en">
@@ -16,7 +16,22 @@
           <a class="btn btn-primary btn-lg btn-block" href="/" role="button">Return Home</a>
           <div style="padding-top: 7%;"></div>
 
-          {{template "certForm"}}
+          {{/*Card start*/}}
+          <div class="card">
+            <div class="card-body">
+
+              <h3 class="card-title">Certificate #{{.Id}}</h3>
+
+              <p><b>Data:</b> {{.Data}}</p>
+              <p><b>Student Email:</b> {{.Semail}}<p>
+              <p><b>School Email:</b> {{.Iemail}}<p>
+              <p><b>Confirmed:</b> {{.Confirmed}}</p>
+
+
+            </div>
+          </div>
+          {{/*Card start*/}}
+
         </div>
         <div class="col-0 col-md-3"></div>
       </div>
