@@ -8,6 +8,24 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "qEZqLBpaJcVYYqKCa4qRjDqQ/fA=",
+			"path": "github.com/Masterminds/semver",
+			"revision": "3c560837130448941620d7694991d3ec440aefc0",
+			"revisionTime": "2018-04-10T20:51:47Z"
+		},
+		{
+			"checksumSHA1": "QC5GfBaOFJWLeR/GcVM2Hd6LX/E=",
+			"path": "github.com/Masterminds/sprig",
+			"revision": "6b2a58267f6a8b1dc8e2eb5519b984008fa85e8c",
+			"revisionTime": "2018-04-03T01:34:13Z"
+		},
+		{
+			"checksumSHA1": "X0xGt0e0IkZeviF+pFRlpHP+xkE=",
+			"path": "github.com/aokoli/goutils",
+			"revision": "3391d3790d23d03408670993e957e8f408993c34",
+			"revisionTime": "2017-05-31T11:00:25Z"
+		},
+		{
 			"checksumSHA1": "NGPOuO9o4DMPLvJ0VROxCP3gdlQ=",
 			"path": "github.com/go-redis/redis",
 			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
@@ -56,10 +74,94 @@
 			"revisionTime": "2018-06-18T10:58:19Z"
 		},
 		{
+			"checksumSHA1": "uFNLkTxk8BkHTk0Jcub2lj2BX4M=",
+			"path": "github.com/google/uuid",
+			"revision": "dec09d789f3dba190787f8b4454c7d3c936fed9e",
+			"revisionTime": "2017-11-29T19:10:14Z"
+		},
+		{
+			"checksumSHA1": "FRNU2AKclBxglExha5kDiQmGtxc=",
+			"path": "github.com/huandu/xstrings",
+			"revision": "7bb0250b58e5c15670406e6f93ffda43281305b1",
+			"revisionTime": "2018-06-16T15:27:07Z"
+		},
+		{
+			"checksumSHA1": "HMoZ70PrmL9dN5Kxs0dyZa/Z5k4=",
+			"path": "github.com/imdario/mergo",
+			"revision": "9316a62528ac99aaecb4e47eadd6dc8aa6533d58",
+			"revisionTime": "2018-06-08T14:01:56Z"
+		},
+		{
+			"checksumSHA1": "CdjTJr7pyWYBWZitM2bUKnF2/m4=",
+			"path": "github.com/jaytaylor/html2text",
+			"revision": "57d518f124b0cf46ea2021f25a01396b3522e6fb",
+			"revisionTime": "2018-06-06T19:48:05Z"
+		},
+		{
 			"checksumSHA1": "X7g98YfLr+zM7aN76AZvAfpZyfk=",
 			"path": "github.com/julienschmidt/httprouter",
 			"revision": "adbc77eec0d91467376ca515bc3a14b8434d0f18",
 			"revisionTime": "2018-04-11T15:45:01Z"
+		},
+		{
+			"checksumSHA1": "prSU5Uv7/IKu6VhGx4rDjPvjaZo=",
+			"path": "github.com/matcornic/hermes",
+			"revision": "23ab47deb5a321481be0c4936b810c1420da2262",
+			"revisionTime": "2018-01-29T21:27:27Z"
+		},
+		{
+			"checksumSHA1": "KGCifxxR5cm2gz94i2iha+RIZlk=",
+			"path": "github.com/mattn/go-runewidth",
+			"revision": "ce7b0b5c7b45a81508558cd1dba6bb1e4ddb51bb",
+			"revisionTime": "2018-04-08T05:53:51Z"
+		},
+		{
+			"checksumSHA1": "sZPoLYTMt3Bz8HNvSeA5TRSx3M8=",
+			"path": "github.com/olekukonko/tablewriter",
+			"revision": "d4647c9c7a84d847478d890b816b7d8b62b0b279",
+			"revisionTime": "2018-05-06T12:14:14Z"
+		},
+		{
+			"checksumSHA1": "HkNUuhYSk5C2fTMa536jBiORq44=",
+			"path": "github.com/shurcooL/sanitized_anchor_name",
+			"revision": "86672fcb3f950f35f2e675df2240550f2a50762f",
+			"revisionTime": "2017-09-05T02:47:45Z"
+		},
+		{
+			"checksumSHA1": "qErubHtC7DAFBnEQkMTuKDtfFTU=",
+			"path": "github.com/ssor/bom",
+			"revision": "6386211fdfcf24c0bfbdaceafd02849ed9a8a509",
+			"revisionTime": "2017-07-18T12:35:48Z"
+		},
+		{
+			"checksumSHA1": "1MGpGDQqnUoRpv7VEcQrXOBydXE=",
+			"path": "golang.org/x/crypto/pbkdf2",
+			"revision": "a49355c7e3f8fe157a85be2f77e6e269a0f89602",
+			"revisionTime": "2018-06-20T09:14:27Z"
+		},
+		{
+			"checksumSHA1": "sx1nQShs40UKtcJZNJuvYtGesaI=",
+			"path": "golang.org/x/crypto/scrypt",
+			"revision": "a49355c7e3f8fe157a85be2f77e6e269a0f89602",
+			"revisionTime": "2018-06-20T09:14:27Z"
+		},
+		{
+			"checksumSHA1": "6WbIuKGVDXQWwDjjEYx4fzLfQO8=",
+			"path": "golang.org/x/net/html",
+			"revision": "afe8f62b1d6bbd81f31868121a50b06d8188e1f9",
+			"revisionTime": "2018-06-20T20:20:43Z"
+		},
+		{
+			"checksumSHA1": "xwhqe/igHQrY3IhqDwzo6j7qpm8=",
+			"path": "golang.org/x/net/html/atom",
+			"revision": "afe8f62b1d6bbd81f31868121a50b06d8188e1f9",
+			"revisionTime": "2018-06-20T20:20:43Z"
+		},
+		{
+			"checksumSHA1": "WrnWl9sC9qr8Ny0wkfKfnuwIxDM=",
+			"path": "gopkg.in/russross/blackfriday.v2",
+			"revision": "cadec560ec52d93835bf2f15bd794700d3a2473b",
+			"revisionTime": "2017-08-06T17:10:14Z"
 		}
 	],
 	"rootPath": "github.com/alowayed/ejaza-app"
