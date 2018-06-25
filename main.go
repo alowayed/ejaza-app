@@ -201,17 +201,24 @@ func init() {
 }
 
 func setupDB() {
-	redisUrl := os.Getenv("REDIS_URL")
-	if redisUrl == "" {
-		redisUrl = "localhost:6379"
-	}
 
-	fmt.Println("Connected to redis at: ", redisUrl)
-	client = redis.NewClient(&redis.Options{
-		Addr:     redisUrl,
+	redisOptions := &redis.Options{
+		Addr:     "localhost:6379",
 		Password: "", // no password set
 		DB:       0,  // use default DB
-	})
+	}
+
+	redisUrl := os.Getenv("REDIS_URL")
+	var err interface{}
+	if redisUrl != "" {
+		redisOptions, err = redis.ParseURL(redisUrl)
+		if err != nil {
+			fmt.Println("Failed to parse redis url: ", redisUrl)
+		}
+	}
+
+	fmt.Println("Connecting to redis with these options: ", redisOptions)
+	client = redis.NewClient(redisOptions)
 }
 
 func preHandler(w *http.ResponseWriter, req *http.Request, ps httprouter.Params) {
