@@ -13,7 +13,8 @@
         <div class="col-0 col-md-3"></div>
         <div class="col-12 col-md-6">
 
-          <a class="btn btn-primary btn-lg btn-block" href="/" role="button">Return Home</a>
+          {{/*<a class="btn btn-primary btn-lg btn-block" href="/" role="button">Return Home</a>*/}}
+          <a class="btn btn-primary btn-lg btn-block" href="/" role="button">{{template "ejaza"}}</a>
           <div style="padding-top: 7%;"></div>
 
           {{/*Card start*/}}
@@ -25,7 +26,21 @@
               <p><b>Data:</b> {{.Data}}</p>
               <p><b>Student Email:</b> {{.Semail}}<p>
               <p><b>School Email:</b> {{.Iemail}}<p>
-              <p><b>Confirmed:</b> {{.Confirmed}}</p>
+              <div>
+
+                <h4>
+                  <b>Confirmed:</b>
+                  {{if .Confirmed}}
+                    <span class="badge badge-success">
+                      Yes
+                    </span>
+                  {{else}}
+                    <span class="badge badge-danger">
+                      No
+                    </span>
+                  {{end}}
+                </h4>
+              </div>
 
 
             </div>
