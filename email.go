@@ -13,6 +13,9 @@ const (
 	MAIL_HOST      = "smtp.gmail.com"
 	EJAZA_EMAIL    = "ejazaco@gmail.com"
 	EJAZA_PASSWORD = "Vacation!"
+	//URL            = "http://localhost:8080"
+	URL            = "https://ejaza.herokuapp.com"
+
 )
 
 var her hermes.Hermes
@@ -54,18 +57,18 @@ func sendConfirmationEmail(cert Cert) {
 		Body: hermes.Body{
 			Name: "Registrars",
 			Intros: []string{
-				"One of your former students would like to have their transcript on the Blockchain." +
-				cert.Semail + "     claims that this data is accurate:",
+				"One of your former students would like to have their transcript on the Blockchain. " +
+					cert.Semail + "     claims that this data is accurate:",
 				cert.Data,
 			},
 			Actions: []hermes.Action{
 				{
 					Instructions: "If what " + cert.Semail + " claims is true, hit the confirm button " +
-						"upload it to the Blockchain and save it forever!",
+						"to upload it to the Blockchain and save it forever!",
 					Button: hermes.Button{
 						Color: "#22BC66", // Optional action button color
 						Text:  "Confirm Transcript",
-						Link:  "http://localhost:8080/cert/confirm/" + strconv.Itoa(cert.Id) + "/nonce/" + cert.Nonce,
+						Link:  URL + "/cert/confirm/" + strconv.Itoa(cert.Id) + "/nonce/" + cert.Nonce,
 					},
 				},
 			},
