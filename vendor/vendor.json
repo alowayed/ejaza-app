@@ -26,6 +26,12 @@
 			"revisionTime": "2017-05-31T11:00:25Z"
 		},
 		{
+			"checksumSHA1": "DmKatmbYsvm+MoCP01PCdQ6Y6Tk=",
+			"path": "github.com/aws/aws-sdk-go/service/s3",
+			"revision": "bb029104295041aa34559192f1b08a2a318b7d4c",
+			"revisionTime": "2018-07-20T23:30:30Z"
+		},
+		{
 			"checksumSHA1": "NGPOuO9o4DMPLvJ0VROxCP3gdlQ=",
 			"path": "github.com/go-redis/redis",
 			"revision": "4b568cdf1adcfe5cab06ad6929ad5286b3db7138",
