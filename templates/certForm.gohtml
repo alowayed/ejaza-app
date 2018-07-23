@@ -5,10 +5,15 @@
 
     <h3 class="card-title">Submit a certificate</h3>
 
-    <form id="certForm" action="/cert/submit" method="post">
-      
+    <form id="certForm" enctype="multipart/form-data" action="/cert/submit" method="post">
+
       <div class="form-group">
-        <label class="control-label" for="certData">Data</label>
+        <label for="certDocument">Document</label>
+        <input type="file" class="form-control-file" id="certDocument" name="document">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="certData">Notes</label>
         <textarea class="form-control" id="certData" rows="3" name="data" required></textarea>
       </div>
 

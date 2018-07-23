@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"encoding/json"
 	"math/rand"
@@ -22,13 +23,17 @@ var client *redis.Client
 // -------------------- Types
 
 type Cert struct {
-	Id           int    `json:"id,string"`
-	Data         string `json:"data"`
-	Semail       string `json:"semail"`
-	Iemail       string `json:"iemail"`
-	Nonce        string `json:"nonce"`
-	Confirmed    bool   `json:"confirmed,string"`
-	BlockchainId string `json:"blockchainId"`
+	Id               int    `json:"id,string"`
+	SubmitTime       int64  `json:"submittime, string"`
+	VerifyTime       int64  `json:"submittime, string"`
+	Data             string `json:"data"`
+	Semail           string `json:"semail"`
+	Iemail           string `json:"iemail"`
+	Nonce            string `json:"nonce"`
+	Confirmed        bool   `json:"confirmed,string"`
+	BlockchainId     string `json:"blockchainId"`
+	ContainsDocument bool   `json:"containsdocument,string"`
+	DocumentName     string `json:"documentname"`
 }
 
 type TerionResp struct {
@@ -59,7 +64,7 @@ func GetCertSubmit(w http.ResponseWriter, req *http.Request, ps httprouter.Param
 }
 
 func PostCertSubmit(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
-	err := req.ParseForm()
+	err := req.ParseMultipartForm(32 << 20)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -68,19 +73,45 @@ func PostCertSubmit(w http.ResponseWriter, req *http.Request, ps httprouter.Para
 	id := generateId()
 	nonce := strconv.Itoa(rand.Int())
 
+	// Get the uploaded document
+	document, documentHeader, err := req.FormFile("document")
+	if err != nil {
+		fmt.Println("Failing: ", err)
+		// TODO: remove after development
+		http.Redirect(w, req, "/", http.StatusSeeOther)
+		return
+	}
+
+	// Check that the document isn't empty / nothing was uploaded
+	containsDocument := true
+	if documentHeader.Size == 0 {
+		containsDocument = false
+	}
+
+	if containsDocument {
+		upload(document, strconv.Itoa(id))
+	}
+
 	data := req.Form["data"][0]
 	sEmail := req.Form["semail"][0]
 	iEmail := req.Form["iemail"][0]
 
 	cert := Cert{
-		Id:     id,
-		Data:   data,
-		Semail: sEmail,
-		Iemail: iEmail,
-		Nonce:  nonce,
+		Id:               id,
+		SubmitTime:       time.Now().Unix(),
+		VerifyTime:       0,
+		Data:             data,
+		Semail:           sEmail,
+		Iemail:           iEmail,
+		Nonce:            nonce,
+		Confirmed:        false,
+		BlockchainId:     "",
+		ContainsDocument: containsDocument,
+		DocumentName:     documentHeader.Filename,
 	}
 
 	// Send an email to
+	// TODO: Uncomment this
 	sendConfirmationEmail(cert)
 
 	// Save the cert to the database
@@ -161,7 +192,7 @@ func GetCertConfirmById(w http.ResponseWriter, req *http.Request, ps httprouter.
 	}
 
 	// Check the nonce
-	if (nonce != cert.Nonce) {
+	if nonce != cert.Nonce {
 		fmt.Println("Nonce does not match what's in the database")
 		tpl.ExecuteTemplate(w, "cert", id)
 		return
@@ -244,7 +275,7 @@ func main() {
 
 	mux := httprouter.New()
 
-	mux.ServeFiles("/css/*filepath", http.Dir("css"))
+	mux.ServeFiles("/public/*filepath", http.Dir("public"))
 
 	mux.GET("/", GetIndex)
 	mux.GET("/cert", GetCert)
