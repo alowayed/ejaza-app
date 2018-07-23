@@ -26,6 +26,12 @@
 			"revisionTime": "2017-05-31T11:00:25Z"
 		},
 		{
+			"checksumSHA1": "36e2OadMiTAbRp58Y0oBAuxJT2Y=",
+			"path": "github.com/aws/aws-sdk-go/aws",
+			"revision": "bb029104295041aa34559192f1b08a2a318b7d4c",
+			"revisionTime": "2018-07-20T23:30:30Z"
+		},
+		{
 			"checksumSHA1": "DmKatmbYsvm+MoCP01PCdQ6Y6Tk=",
 			"path": "github.com/aws/aws-sdk-go/service/s3",
 			"revision": "bb029104295041aa34559192f1b08a2a318b7d4c",
